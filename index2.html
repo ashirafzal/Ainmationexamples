@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS3 Animation</title>
+    <style>
+         body {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto; }
+        nav {
+        width: 100%;
+        margin: 20px 0; }
+        nav ul {
+        list-style: none;
+        overflow: hidden; }
+        nav ul li {
+        float: left;
+        width: 20%; }
+        nav ul li a {
+        text-align: center;
+        padding: 8px 0;
+        display: block;
+        width: 100%;
+        background: #cdeb8e; /* Old browsers */
+        background: -moz-linear-gradient(top,
+            #cdeb8e 0%, #b0ca34 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom,
+            color-stop(0%,#cdeb8e),
+            color-stop(100%,#b0ca34)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,
+            #cdeb8e 0%,#b0ca34 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,
+            #cdeb8e 0%,#b0ca34 100%); /* Opera 11.10+ */
+        background: linear-gradient(to bottom,
+            #cdeb8e 0%,#b0ca34 100%); /* W3C, IE10+ */
+        filter: progid:DXImageTransform.Microsoft.gradient(
+            startColorstr=’#cdeb8e’,
+            endColorstr=’#b0ca34′,GradientType=0 ); /* IE6-9 */
+        }
+        nav ul li a,
+        nav ul li a:focus,
+        nav ul li a:visited,
+        nav ul li a:hover,
+        nav ul li a:active {
+        color: #000;
+        text-decoration: none; }
+        nav ul li a:hover,
+        nav ul li a:active {
+        background: #b0ca34; /* Old browsers */
+        background: -moz-linear-gradient(top,
+            #b0ca34 0%, #96c40d 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom,
+            color-stop(0%,#b0ca34),
+            color-stop(100%,#96c40d)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,
+            #b0ca34 0%,#96c40d 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,
+            #b0ca34 0%,#96c40d 100%); /* Opera 11.10+ */
+        background: linear-gradient(to bottom,
+            #b0ca34 0%,#96c40d 100%); /* W3C, IE10+ */
+        filter: progid:DXImageTransform.Microsoft.gradient(
+            startColorstr=’#b0ca34′,
+            endColorstr=’#96c40d’,GradientType=0 ); /* IE6-9 */
+        }
+        nav ul li:first-child a {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px; }
+        nav ul li:last-child a {
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px; }
+        .showbox {
+            float: left;
+            margin: 6em 4em;
+            width: 200px;
+            height: 120px;
+            border: 2px solid green;
+            background-color: #fff;
+            line-height: 60px;
+            text-align: center;
+        }
+
+        .showbox1{
+            float: left;
+            margin: 6em 4em;
+            width: 200px;
+            height: 120px;
+            border: 2px solid green;
+            background-color: #fff;
+            line-height: 60px;
+            text-align: center;
+            -webkit-transition: 1s ease-in-out;
+            -moz-transition: 1s ease-in-out;
+            -o-transition: 1s ease-in-out;
+            transition: 1s ease-in-out;
+        }
+        .showbox1.slideright:hover {
+            -webkit-transform: translate(12em,0);
+            -moz-transform: translate(12em,0);
+            -o-transform: translate(12em,0);
+            -ms-transform: translate(12em,0);
+            transform: translate(12em,0);
+        }
+        #stage {
+            position: relative;
+            float: right;
+            margin: 0em 4em 1em 1em;
+            width: 250px;
+            height: 250px;
+            background: #efefef;
+        }
+        #block {
+            left: 0;
+            top: 0;
+            width: 120px;
+            height: 120px;
+            background: blue;
+            -webkit-transition-property: left, top, background, -webkit-transform;
+            -webkit-transition-duration: 2s, 2s, 1s, 1s;
+            -webkit-transition-timing-function: ease-out, ease-in, linear, ease-in-out;
+            -webkit-transition-delay: 0, 0, 0, 1s;
+        }
+        #stage:hover #block {
+            left: 100px;
+            top: 100px;
+            background: red;
+            -webkit-transform: rotate(360deg);
+        }
+        #stage2 {
+            position: relative;
+            height: 100px;
+            background: #efefef;
+            text-align: right;
+        }
+        #box1 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #666;
+            background: red;
+            color: #fff;
+        }
+        #box2 {
+            position: absolute;
+            left: 120px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #666;
+            background: #00f;
+            -webkit-transition: 1s all ease-in-out;
+            -moz-transition: 1s all ease-in-out;
+            -o-transition: 1s all ease-in-out;
+            transition: 1s all ease-in-out;
+            color: #fff;
+        }
+        #box1:hover + #box2 {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
+            left: calc(100% - 102px);
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+   <div class="container-fluid">
+    <nav>
+        <ul>
+          <li>
+              <a href="index.html">character</a>
+          </li>
+          <li>
+              <a href="index2.html">Boxes hover</a>
+          </li>
+          <li>
+              <a href="index3.html">Box travel</a>
+          </li>
+          <li>
+              <a href="index4.html">Rocket travel</a>
+          </li>
+        </ul>
+    </nav>
+    <div id="stage2">
+        <div id="box1"></div>
+        <div id="box2"></div>
+    </div>
+    <br>
+    <div class="showbox" style="transform: translate(3em,0);">box 1</div>
+    <div class="showbox" style="transform: rotate(30deg); border-color: red;">box 2</div>
+    <div class="showbox" style="transform: translate(-3em,1em);">box 3</div>
+    <div class="showbox" style="transform: scale(2);">box 4</div>
+    <div style="clear: left;"></div>
+    <div class="showbox1 slideright">Slider box</div>
+    <br>
+    <div id="stage">
+        <div class="timer"></div>
+        <div id="block"></div>
+    </div>
+   </div>
+</body>
+</html>

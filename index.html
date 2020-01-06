@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS3 Animation</title>
+    <style>
+        body {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto; }
+        nav {
+        z-index: 2;
+        position: absolute;
+        width: 100%;
+        margin: 20px 0; }
+        nav ul {
+        list-style: none;
+        overflow: hidden; }
+        nav ul li {
+        float: left;
+        width: 20%; }
+        nav ul li a {
+        text-align: center;
+        padding: 8px 0;
+        display: block;
+        width: 100%;
+        background: #cdeb8e; /* Old browsers */
+        background: -moz-linear-gradient(top,
+            #cdeb8e 0%, #b0ca34 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom,
+            color-stop(0%,#cdeb8e),
+            color-stop(100%,#b0ca34)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,
+            #cdeb8e 0%,#b0ca34 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,
+            #cdeb8e 0%,#b0ca34 100%); /* Opera 11.10+ */
+        background: linear-gradient(to bottom,
+            #cdeb8e 0%,#b0ca34 100%); /* W3C, IE10+ */
+        filter: progid:DXImageTransform.Microsoft.gradient(
+            startColorstr=’#cdeb8e’,
+            endColorstr=’#b0ca34′,GradientType=0 ); /* IE6-9 */
+        }
+        nav ul li a,
+        nav ul li a:focus,
+        nav ul li a:visited,
+        nav ul li a:hover,
+        nav ul li a:active {
+        color: #000;
+        text-decoration: none; }
+        nav ul li a:hover,
+        nav ul li a:active {
+        background: #b0ca34; /* Old browsers */
+        background: -moz-linear-gradient(top,
+            #b0ca34 0%, #96c40d 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom,
+            color-stop(0%,#b0ca34),
+            color-stop(100%,#96c40d)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,
+            #b0ca34 0%,#96c40d 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,
+            #b0ca34 0%,#96c40d 100%); /* Opera 11.10+ */
+        background: linear-gradient(to bottom,
+            #b0ca34 0%,#96c40d 100%); /* W3C, IE10+ */
+        filter: progid:DXImageTransform.Microsoft.gradient(
+            startColorstr=’#b0ca34′,
+            endColorstr=’#96c40d’,GradientType=0 ); /* IE6-9 */
+        }
+        nav ul li:first-child a {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px; }
+        nav ul li:last-child a {
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px; }
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #clouds{
+            padding: 100px 0;
+            background: #3598dc;
+            background: -webkit-linear-gradient(top, #3598dc 0%, #fff 100%);
+            background: -linear-gradient(top, #3598dc 0%, #fff 100%);
+            background: -moz-linear-gradient(top, #3598dc 0%, #fff 100%);
+            overflow: hidden;
+        }
+
+        .cloud {
+            width: 200px; height: 60px;
+            background: #fff;
+            border-radius: 200px;
+            -moz-border-radius: 200px;
+            -webkit-border-radius: 200px;
+            position: relative;
+        }
+
+        .cloud:before, .cloud:after {
+            content: '';
+            position: absolute;
+            background: #fff;
+            width: 100px; height: 80px;
+            position: absolute; top: -15px; left: 10px;
+
+            border-radius: 100px;
+            -moz-border-radius: 100px;
+            -webkit-border-radius: 100px;
+            -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+            -moz-transform: rotate(30deg);
+        }
+
+        .cloud:after {
+            width: 120px; height: 120px;
+            top: -55px; left: auto; right: 15px;
+        }
+
+        #character{
+            margin-top: -120px;
+            background:url(https://i.imgur.com/Zjsbcni.png);
+            width: 84px;
+            height: 126px;
+            animation: walk 1.0s steps(6) infinite;
+            margin-left: 425px;
+        }
+
+        #flooring {
+            height: 39px;
+            background-image: url(https://i.imgur.com/usFekrp.png);
+            animation: movefloor 20s linear infinite;
+            overflow: hidden;
+        }
+
+        @keyframes movefloor {
+            0% {margin-left: 1000px;}
+            100% {margin-left: -1000px;}
+        }
+
+        @keyframes walk {
+            from { background-position: 0px; }
+            to { background-position: -500px; }
+        }
+
+        .x1 {
+            -webkit-animation: moveclouds 15s linear infinite;
+            -moz-animation: moveclouds 15s linear infinite;
+            -o-animation: moveclouds 15s linear infinite;
+        }
+
+        .x2 {
+            left: 200px;
+            -webkit-transform: scale(0.6);
+            -moz-transform: scale(0.6);
+            transform: scale(0.6);
+            opacity: 0.6; /*opacity proportional to the size*/
+
+            -webkit-animation: moveclouds 25s linear infinite;
+            -moz-animation: moveclouds 25s linear infinite;
+            -o-animation: moveclouds 25s linear infinite;
+        }
+
+        .x3 {
+            left: 252px;
+            top: -200px;
+            -webkit-transform: scale(0.8);
+            -moz-transform: scale(0.8);
+            transform: scale(0.8);
+            opacity: 0.8; /*opacity proportional to the size*/
+
+            -webkit-animation: moveclouds 20s linear infinite;
+            -moz-animation: moveclouds 20s linear infinite;
+            -o-animation: moveclouds 20s linear infinite;
+        }
+
+
+        @-webkit-keyframes moveclouds {
+            0% {margin-left: 1000px;}
+            100% {margin-left: -1000px;}
+        }
+        @-moz-keyframes moveclouds {
+            0% {margin-left: 1000px;}
+            100% {margin-left: -1000px;}
+        }
+        @-o-keyframes moveclouds {
+            0% {margin-left: 1000px;}
+            100% {margin-left: -1000px;}
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+              <li>
+                  <a href="index.html">character</a>
+              </li>
+              <li>
+                  <a href="index2.html">Boxes hover</a>
+              </li>
+              <li>
+                  <a href="index3.html">Box travel</a>
+              </li>
+              <li>
+                  <a href="index4.html">Rocket travel</a>
+              </li>
+            </ul>
+        </nav>
+        <div id="clouds">
+            <div class="cloud x1"></div>
+            <div class="cloud x2"></div>
+            <div class="cloud x3"></div>
+            <div class="cloud x4"></div>
+            <div class="cloud x5"></div>
+        </div>
+        <div id="character"></div>
+        <div id="flooring"></div>
+    </div>
+</body>
+</html>
